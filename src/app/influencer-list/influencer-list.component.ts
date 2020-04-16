@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, OnInit} from '@angular/core';
+import {InfluencersService} from '../serivces/Influencers/influencers.service';
 
 @Component({
   selector: 'app-influencer-list',
@@ -6,10 +7,22 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./influencer-list.component.scss']
 })
 export class InfluencerListComponent implements OnInit {
+  public influencers;
 
-  constructor() { }
+  constructor(private influencersService: InfluencersService) {
+  }
 
   ngOnInit(): void {
+    this.getInfleuncers();
+  }
+
+  getInfleuncers() {
+    this.influencersService.getInfluencers().subscribe(
+      data => {
+        this.influencers = data;
+      },
+      err => console.error(err)
+    );
   }
 
 }
