@@ -1,0 +1,55 @@
+<div class="row">
+<hr>
+<div class="row">
+  <div class="col-xs-12">
+    <app-preview-influencer
+      *ngFor="let influencerEl of influencers"
+      [selectedInfluencer]="influencerEl"></app-preview-influencer>
+  </div>
+</div>
+
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!--<div class="row">-->
+<!--  <div class="container m-2 ml-md-5 col-sm-4">-->
+<!--    <div class="shadow card bg-light">-->
+<!--      <div class="card-header h4 text-dark text-center">-->
+<!--        Liste d'influnceurs-->
+<!--      </div>-->
+<!--      <table class="table table-hover table-inverse table-striped">-->
+<!--        <thead class="bg-light">-->
+<!--        <tr>-->
+<!--          <th>Nom</th>-->
+<!--          <th>Prénom</th>-->
+<!--          <th>Niche</th>-->
+<!--        </tr>-->
+<!--        </thead>-->
+<!--        <tbody>-->
+<!--        <tr *ngFor="let influencer of influencers" (click)="onSelected()">-->
+<!--          <td>-->
+<!--            {{influencer.firstName}}-->
+<!--          </td>-->
+<!--          <td>-->
+<!--            {{influencer.lastName}}-->
+<!--          </td>-->
+<!--          <td>-->
+<!--            {{influencer.niche}}-->
+<!--          </td>-->
+<!--        </tr>-->
+<!--        </tbody>-->
+<!--      </table>-->
+<!--    </div>-->
+<!--  </div>-->
+<!--</div>-->

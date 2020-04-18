@@ -1,7 +1,6 @@
 import {NgModule} from '@angular/core';
 import {Routes, RouterModule} from '@angular/router';
-import {InfluencerListComponent} from './influencer-list/influencer-list.component';
-import {SingleInfluencerComponent} from './influencer-list/single-influencer/single-influencer.component';
+import {InfluencerListComponent} from './influencer/influencer-list/influencer-list.component';
 import {MyDealListComponent} from './my-deal-list/my-deal-list.component';
 import {SingleDealComponent} from './my-deal-list/single-deal/single-deal.component';
 import {DealFormComponent} from './my-deal-list/deal-form/deal-form.component';
@@ -13,10 +12,11 @@ import {SingleProductComponent} from './product-list/single-product/single-produ
 import {ProductFormComponent} from './product-list/product-form/product-form.component';
 import {ProfileComponent} from './profile/profile.component';
 import {SearchComponent} from './search/search.component';
+import {InfluencerComponent} from './influencer/influencer.component';
 
 const routes: Routes = [
-  {path: 'influencers', component: InfluencerListComponent},
-  {path: 'influencer', component: SingleInfluencerComponent},
+  // {path: 'influencers', component: InfluencerListComponent},
+  {path: 'influencer', component: InfluencerComponent},
   {path: 'deals', component: MyDealListComponent},
   {path: 'deal', component: SingleDealComponent},
   {path: 'newDeal', component: DealFormComponent},
