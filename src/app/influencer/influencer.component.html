@@ -1,0 +1,13 @@
+<div class="row">
+  <div class="container-fluid col-md-5">
+    <app-influencer-list></app-influencer-list>
+  </div>
+  <div class="container-fluid col-md-7">
+    <app-single-influencer
+      *ngIf="influencerSelected; else infoText"
+      [selectedInfluencer]="influencerSelected"></app-single-influencer>
+    <ng-template #infoText>
+      <p class="text-secondary text-center">Veuillez selectionner un influenceur !</p>
+    </ng-template>
+  </div>
+</div>

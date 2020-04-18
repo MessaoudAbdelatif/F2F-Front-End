@@ -19,11 +19,6 @@ export class InfluencerListComponent implements OnInit {
     this.getInfleuncers();
   }
 
-  // onSelected() {
-  //   this.influencersService.infleuncerSelected.emit(this.infleuncerSelected);
-  //   console.log('AAAAAAAAAA');
-  // }
-
   getInfleuncers() {
 
     this.influencersService.getInfluencersFromApi()

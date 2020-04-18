@@ -1,10 +1,10 @@
 <a
   routerLinkActive="influencer"
-  class="list-group-item clearfix"
+  class="list-group-item btn-outline-dark bg-transparent"
   (click)="onSelected()">
-  <div class="pull-left">
+  <div class="pull-left card-title">
     <h4 class="list-group-item-heading">{{ selectedInfluencer.firstName }} {{selectedInfluencer.lastName}}</h4>
-    <p class="list-group-item-text">{{ selectedInfluencer.niche }}</p>
+    <p class="list-group-item-text text-secondary">{{ selectedInfluencer.niche }}</p>
   </div>
 
 </a>
