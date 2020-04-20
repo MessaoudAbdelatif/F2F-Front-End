@@ -1,5 +1,6 @@
-<div class="row">
-  <div class="container col-xs-12">
+<div class="row ml-md-3">
+  <div class="col-12" *ngIf="!errorMessage; else ErrorMessageView">
+  <div class="container-fluid">
     <div class="shadow card bg-light m-2">
       <div class="card-header h4 text-dark text-center">
         Liste d'influnceurs
@@ -12,6 +13,10 @@
    </tr> </tbody>
       </table>
     </div></div>
+  </div>
+  <ng-template #ErrorMessageView>
+    <p class="text-center text-uppercase text-danger h2">{{errorMessage}}</p>
+  </ng-template>
 </div>
 
 

@@ -15,7 +15,7 @@ export class InfluencersService {
   }
 
   getInfluencersFromApi() {
-    return this.httpClient.get('/f2fserver/api/v1/influencers',
-      {headers: new HttpHeaders({Authorization: 'Bearer ' + this.securityService.kc.token})});
+    return this.httpClient.get('/f2fserver/api/v1/influencers');
+      // {headers: new HttpHeaders({Authorization: 'Bearer ' + this.securityService.kc.token})});
   }
 }

@@ -9,15 +9,16 @@ import {Influencer} from '../models/Influencer.model';
 })
 export class InfluencerComponent implements OnInit {
   influencerSelected: Influencer;
+  errorMessage: string;
 
   constructor(private influencersService: InfluencersService) {
   }
+
   ngOnInit() {
     this.influencersService.infleuncerSelected
       .subscribe(
         (influencer: Influencer) => {
-          this.influencerSelected = influencer;
-        }
+          this.influencerSelected = influencer;}
       );
   }
 

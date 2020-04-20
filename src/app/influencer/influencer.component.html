@@ -1,8 +1,8 @@
 <div class="row">
-  <div class="container-fluid col-md-4 mr-1">
+  <div class="container-fluid col-md-5">
     <app-influencer-list></app-influencer-list>
   </div>
-  <div class="container-fluid col-md-7">
+  <div class="container col-md-7">
     <app-single-influencer
       *ngIf="influencerSelected; else infoText"
       [selectedInfluencer]="influencerSelected"></app-single-influencer>

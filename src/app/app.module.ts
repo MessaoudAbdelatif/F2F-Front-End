@@ -16,7 +16,6 @@ import {ProductFormComponent} from './product/product-form/product-form.componen
 import {SearchComponent} from './search/search.component';
 import {ProfileComponent} from './profile/profile.component';
 import {HeaderComponent} from './header/header.component';
-import {RouterModule, Routes} from '@angular/router';
 import {AppRoutingModule} from './app-routing.module';
 import {AuthGuardService} from './services/auth/auth-guard.service';
 import {AuthService} from './services/auth/auth.service';
@@ -25,7 +24,7 @@ import {InfluencersService} from './services/Influencers/influencers.service';
 import {MessagesService} from './services/messages/messages.service';
 import {ProductsService} from './services/products/products.service';
 import {FormsModule, ReactiveFormsModule} from '@angular/forms';
-import {HttpClientModule} from '@angular/common/http';
+import {HTTP_INTERCEPTORS, HttpClientModule} from '@angular/common/http';
 import {PreviewInfluencerComponent} from './influencer/influencer-list/preview-influencer/preview-influencer.component';
 import {InfluencerComponent} from './influencer/influencer.component';
 import {PreviewDealComponent} from './deal/my-deal-list/preview-deal/preview-deal.component';
@@ -35,6 +34,7 @@ import {PreviewMessageComponent} from './message/my-message-list/preview-message
 import {ProductComponent} from './product/product.component';
 import {PreviewProductComponent} from './product/product-list/preview-product/preview-product.component';
 import {KeycloakSerurityService} from './services/keycloak-security/keycloak-serurity.service';
+import {RequestInterceptorService} from './services/keycloak-security/request-interceptor.service';
 
 export function kcFactory(kcSecurity: KeycloakSerurityService) {
   return () => kcSecurity.init();
@@ -75,6 +75,7 @@ export function kcFactory(kcSecurity: KeycloakSerurityService) {
   ],
   providers: [
     {provide: APP_INITIALIZER, deps: [KeycloakSerurityService], useFactory: kcFactory, multi: true},
+    {provide: HTTP_INTERCEPTORS, useClass: RequestInterceptorService, multi: true},
     AuthGuardService,
     AuthService,
     DealsService,
