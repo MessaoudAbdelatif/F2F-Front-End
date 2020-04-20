@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, OnInit} from '@angular/core';
+import {KeycloakSerurityService} from '../services/keycloak-security/keycloak-serurity.service';
 
 @Component({
   selector: 'app-header',
@@ -7,9 +8,25 @@ import { Component, OnInit } from '@angular/core';
 })
 export class HeaderComponent implements OnInit {
 
-  constructor() { }
+  constructor(public securityService: KeycloakSerurityService) {
+  }
 
   ngOnInit(): void {
   }
 
+  onLogout() {
+    this.securityService.kc.logout();
+  }
+
+  onLogin() {
+    this.securityService.kc.login();
+  }
+
+  onKcProfile() {
+    this.securityService.kc.accountManagement();
+  }
+
+  isUserCompany() {
+    this.securityService.kc.hasResourceRole('company');
+  }
 }

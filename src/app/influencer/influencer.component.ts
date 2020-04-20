@@ -1,5 +1,5 @@
 import {Component, OnInit} from '@angular/core';
-import {InfluencersService} from '../serivces/Influencers/influencers.service';
+import {InfluencersService} from '../services/Influencers/influencers.service';
 import {Influencer} from '../models/Influencer.model';
 
 @Component({
