@@ -27,6 +27,6 @@ export class HeaderComponent implements OnInit {
   }
 
   isUserCompany() {
-    this.securityService.kc.hasResourceRole('company');
+    return this.securityService.kc.hasRealmRole('company');
   }
 }

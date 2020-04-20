@@ -41,18 +41,18 @@
           </a>
 
         <li class="nav-item" *ngIf="securityService.kc.authenticated">
-          <a class="nav-link dropdown-toggle btn text-uppercase" id="navbarDropdown" role="button"
+          <a class="nav-link dropdown-toggle text-uppercase" id="navbarDropdown" role="button"
              data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
             {{ securityService.kc.tokenParsed["name"] }}
           </a>
           <!-- Add the .animate and .slide-in classes to your .dropdown-menu and you're all set! -->
           <div class="dropdown-menu dropdown-menu-right animate slideIn"
                aria-labelledby="navbarDropdown">
-            <a href="/" class=" dropdown-item nav-link btn" (click)="onKcProfile()">Mon compte</a>
-            <a class="dropdown-item nav-link btn" (click)="onLogout()">Se déconnecter</a>
+            <a href="/" class=" dropdown-item nav-link" (click)="onKcProfile()">Mon compte</a>
+            <a class="dropdown-item nav-link " (click)="onLogout()">Se déconnecter</a>
           </div>
         </li>
-        <li><a *ngIf="!securityService.kc.authenticated" class="dropdown-item nav-link btn" (click)="onLogin()">Se
+        <li><a *ngIf="!securityService.kc.authenticated" class="dropdown-item nav-link " (click)="onLogin()">Se
           connecter</a>
         </li>
 
