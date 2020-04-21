@@ -1,1 +1,13 @@
-<p>product works!</p>
+<div class="row">
+  <div class="container col-md-5">
+    <app-product-list></app-product-list>
+  </div>
+  <div class="container col-md-7">
+    <app-single-product
+      *ngIf="productSelected; else infoText"
+      [selectedProduct]="productSelected"></app-single-product>
+    <ng-template #infoText>
+      <p class="text-secondary text-center">Veuillez selectionner un produit !</p>
+    </ng-template>
+  </div>
+</div>

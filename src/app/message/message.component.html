@@ -1,1 +1,14 @@
-<p>message works!</p>
+<div class="row">
+  <div class="container col-md-5">
+    <app-my-message-list></app-my-message-list>
+  </div>
+  <div class="container col-md-7">
+    <app-single-message
+      *ngIf="messageSelected; else infoText"
+      [selectedMessage]="messageSelected"></app-single-message>
+    <ng-template #infoText>
+      <p class="text-secondary text-center">Veuillez selectionner un message !</p>
+    </ng-template>
+  </div>
+</div>
+

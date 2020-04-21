@@ -15,6 +15,13 @@ export class MessagesService {
   }
 
   getMessagesFromApi() {
-    return this.httpClient.get('/f2fserver/api/v1/messages');
+    const email = this.securityService.kc.tokenParsed['email'];
+    console.log(email);
+    if (this.securityService.kc.hasRealmRole('company')) {
+      return this.httpClient.get('/f2fserver/api/v1/messages/company/' + email);
+    }
+    if (this.securityService.kc.hasRealmRole('influencer')) {
+      return this.httpClient.get('/f2fserver/api/v1/messages/influencer/' + email);
+    }
   }
 }

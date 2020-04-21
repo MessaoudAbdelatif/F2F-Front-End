@@ -13,8 +13,8 @@ export class RequestInterceptorService implements HttpInterceptor {
   }
 
   intercept(req: HttpRequest<any>, next: HttpHandler): Observable<HttpEvent<any>> {
-    console.log('http interceptor.......' + req);
-    if (!this.securityService.kc.authenticated) {
+    console.log('http interceptor.......' + req.url.toString());
+    if (!this.securityService.kc.authenticated && !req.url.toString().includes('f2fserver')) {
       return next.handle(req);
     }
     let updatedRequest = req.clone({

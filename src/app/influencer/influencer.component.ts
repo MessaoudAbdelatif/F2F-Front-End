@@ -1,6 +1,7 @@
 import {Component, OnInit} from '@angular/core';
 import {InfluencersService} from '../services/Influencers/influencers.service';
 import {Influencer} from '../models/Influencer.model';
+import {KeycloakSerurityService} from '../services/keycloak-security/keycloak-serurity.service';
 
 @Component({
   selector: 'app-influencer',
@@ -9,7 +10,6 @@ import {Influencer} from '../models/Influencer.model';
 })
 export class InfluencerComponent implements OnInit {
   influencerSelected: Influencer;
-  errorMessage: string;
 
   constructor(private influencersService: InfluencersService) {
   }
@@ -18,7 +18,8 @@ export class InfluencerComponent implements OnInit {
     this.influencersService.infleuncerSelected
       .subscribe(
         (influencer: Influencer) => {
-          this.influencerSelected = influencer;}
+          this.influencerSelected = influencer;
+        }
       );
   }
 

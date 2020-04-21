@@ -1,4 +1,6 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, Input, OnInit} from '@angular/core';
+import {ProductModel} from '../../../models/Product.model';
+import {ProductsService} from '../../../services/products/products.service';
 
 @Component({
   selector: 'app-preview-product',
@@ -6,10 +8,15 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./preview-product.component.scss']
 })
 export class PreviewProductComponent implements OnInit {
+  @Input() selectedProduct: ProductModel;
 
-  constructor() { }
+  constructor(private productsService: ProductsService) {
+  }
 
   ngOnInit(): void {
   }
 
+  onSelected() {
+    this.productsService.productSelected.emit(this.selectedProduct);
+  }
 }

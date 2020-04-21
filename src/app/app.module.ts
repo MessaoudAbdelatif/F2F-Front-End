@@ -1,5 +1,5 @@
 import {BrowserModule} from '@angular/platform-browser';
-import {APP_INITIALIZER, NgModule} from '@angular/core';
+import {APP_INITIALIZER, ApplicationRef, DoBootstrap, NgModule} from '@angular/core';
 
 import {AppComponent} from './app.component';
 import {MyDealListComponent} from './deal/my-deal-list/my-deal-list.component';
@@ -36,9 +36,10 @@ import {PreviewProductComponent} from './product/product-list/preview-product/pr
 import {KeycloakSerurityService} from './services/keycloak-security/keycloak-serurity.service';
 import {RequestInterceptorService} from './services/keycloak-security/request-interceptor.service';
 
-export function kcFactory(kcSecurity: KeycloakSerurityService) {
-  return () => kcSecurity.init();
-}
+// export function kcFactory(kcSecurity: KeycloakSerurityService) {
+//   return () => kcSecurity.init();
+// }
+const secService = new KeycloakSerurityService();
 
 @NgModule({
   declarations: [
@@ -74,7 +75,8 @@ export function kcFactory(kcSecurity: KeycloakSerurityService) {
     AppRoutingModule
   ],
   providers: [
-    {provide: APP_INITIALIZER, deps: [KeycloakSerurityService], useFactory: kcFactory, multi: true},
+    {provide: KeycloakSerurityService, useValue: secService},
+    // {provide: APP_INITIALIZER, deps: [KeycloakSerurityService], useFactory: kcFactory, multi: true},
     {provide: HTTP_INTERCEPTORS, useClass: RequestInterceptorService, multi: true},
     AuthGuardService,
     AuthService,
@@ -83,7 +85,17 @@ export function kcFactory(kcSecurity: KeycloakSerurityService) {
     MessagesService,
     ProductsService
   ],
-  bootstrap: [AppComponent]
+  entryComponents: [AppComponent]
+  // bootstrap: [AppComponent]
 })
-export class AppModule {
+export class AppModule implements DoBootstrap {
+  ngDoBootstrap(appRef: ApplicationRef): void {
+    secService.init().then(authenticated => {
+      console.log(authenticated);
+      appRef.bootstrap(AppComponent);
+    }).catch(err => {
+        console.log(err);
+      }
+    );
+  }
 }

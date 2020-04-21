@@ -1,4 +1,6 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, Input, OnInit} from '@angular/core';
+import {DealModel} from '../../models/Deal.model';
+import {DealsService} from '../../services/deals/deals.service';
 
 @Component({
   selector: 'app-single-deal',
@@ -6,8 +8,10 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./single-deal.component.scss']
 })
 export class SingleDealComponent implements OnInit {
+  @Input() selectedDeal: DealModel;
 
-  constructor() { }
+  constructor(private dealsService: DealsService) {
+  }
 
   ngOnInit(): void {
   }

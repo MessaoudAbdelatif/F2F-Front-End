@@ -12,18 +12,27 @@ export class KeycloakSerurityService {
   constructor() {
   }
 
-  public async init() {
-    console.log('security......');
-    this.kc = new Keycloak({
-      url: 'http://localhost:8080/auth',
-      realm: 'F2Follow',
-      clientId: 'AngularFrontF2F'
-    });
-    await this.kc.init(
-      {
-        // onLoad: 'login-required',
-        onLoad: 'check-sso',
+  public init() {
+    return new Promise((resolve, reject) => {
+
+      console.log('security Initialisation......');
+      this.kc = new Keycloak({
+        url: 'http://localhost:8080/auth',
+        realm: 'F2Follow',
+        clientId: 'AngularFrontF2F'
       });
-    console.log(this.kc.token);
+      this.kc.init(
+        {
+          // onLoad: 'login-required',
+          onLoad: 'check-sso',
+        }).then((authenticated) => {
+        console.log(this.kc.token);
+        resolve(authenticated);
+      }).catch((err) => {
+        console.log(err);
+        reject(err);
+      });
+    });
+
   }
 }

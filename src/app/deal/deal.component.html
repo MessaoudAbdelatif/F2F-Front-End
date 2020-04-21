@@ -1,1 +1,13 @@
-<p>deal works!</p>
+<div class="row">
+  <div class="container col-md-5">
+    <app-my-deal-list></app-my-deal-list>
+  </div>
+  <div class="container col-md-7">
+    <app-single-deal
+      *ngIf="dealSelected; else infoText"
+      [selectedDeal]="dealSelected"></app-single-deal>
+    <ng-template #infoText>
+      <p class="text-secondary text-center">Veuillez selectionner une offre !</p>
+    </ng-template>
+  </div>
+</div>

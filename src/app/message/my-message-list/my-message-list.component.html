@@ -1,1 +1,20 @@
-<p>my-message-list works!</p>
+<div class="row ml-md-3">
+  <div class="col-12" *ngIf="!errorMessage; else ErrorMessageView">
+    <div class="container-fluid">
+      <div class="shadow card bg-light m-2">
+        <div class="card-header h4 text-dark text-center">
+          Mes Messages
+        </div>
+        <table class="table table-hover table-inverse table-striped">
+          <tbody>
+          <tr> <app-preview-message
+            *ngFor="let messagesEl of messages"
+            [selectedMessage]="messagesEl"></app-preview-message>
+          </tr> </tbody>
+        </table>
+      </div></div>
+  </div>
+  <ng-template #ErrorMessageView>
+    <p class="text-center text-uppercase text-danger h2">{{errorMessage}}</p>
+  </ng-template>
+</div>

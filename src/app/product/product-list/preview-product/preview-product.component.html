@@ -1,1 +1,9 @@
-<p>preview-product works!</p>
+<a
+  routerLinkActive="messages"
+  class="list-group-item btn-outline-dark bg-transparent"
+  (click)="onSelected()">
+  <div class="pull-left card-title">
+    <h4 class="list-group-item-heading">{{ selectedProduct.name }} from: {{selectedProduct.createdDate}}</h4>
+    <p class="list-group-item-text text-secondary">{{  selectedProduct.link }}</p>
+  </div>
+</a>

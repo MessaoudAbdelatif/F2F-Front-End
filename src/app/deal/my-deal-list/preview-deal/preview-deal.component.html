@@ -1,1 +1,9 @@
-<p>preview-deal works!</p>
+<a
+  routerLinkActive="deals"
+  class="list-group-item btn-outline-dark bg-transparent"
+  (click)="onSelected()">
+  <div class="pull-left card-title">
+    <h4 class="list-group-item-heading">{{ selectedDeal.title }} from: {{selectedDeal.company}}</h4>
+    <p class="list-group-item-text text-secondary">{{  selectedDeal.createdDate }}</p>
+  </div>
+</a>

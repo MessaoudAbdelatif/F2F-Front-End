@@ -1,4 +1,7 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, Input, OnInit} from '@angular/core';
+import {Influencer} from '../../models/Influencer.model';
+import {MessageModel} from '../../models/Message.model';
+import {MessagesService} from '../../services/messages/messages.service';
 
 @Component({
   selector: 'app-single-message',
@@ -6,8 +9,10 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./single-message.component.scss']
 })
 export class SingleMessageComponent implements OnInit {
+  @Input() selectedMessage: MessageModel;
 
-  constructor() { }
+  constructor(private messagesService: MessagesService) {
+  }
 
   ngOnInit(): void {
   }
