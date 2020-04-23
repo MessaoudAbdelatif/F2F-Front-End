@@ -1,1 +1,29 @@
-<p>message-form works!</p>
+<!-- Default form contact -->
+<form [formGroup]="messageForm" (ngSubmit)="submitMessage()" class="text-center border border-light p-5" novalidate>
+
+  <p class="h4 mb-4">Ecrire un message :</p>
+  <div *ngIf="valideMessage != ''"><div class="h3 text-info">{{valideMessage}}</div></div>
+
+  <!-- Name -->
+  <label>Destinataire </label>
+  <input type="text" id="defaultContactFormName" class="form-control mb-4" disabled placeholder={{selectedInfluencer.firstName}}>
+  <!-- Subject -->
+  <label>Le sujet</label>
+  <select class="browser-default custom-select mb-4" formControlName="title">
+    <option value="Choisie un motif" disabled>Choisie un motif</option>
+    <option value="Premier contact" selected>Premier contact</option>
+    <option value="Demander des informations">Demander des informations</option>
+    <option value="Réclamation">Réclamation</option>
+    <option value="Autres raisons">Autres raisons</option>
+  </select>
+
+  <!-- Message -->
+  <div class="form-group" >
+    <textarea class="form-control rounded-0" id="exampleFormControlTextarea2" rows="10" placeholder="Message" formControlName="text"></textarea>
+  </div>
+
+  <!-- Send button -->
+  <button mdbBtn color="info" block="true" type="submit">Envoyé</button>
+
+</form>
+<!-- Default form contact -->

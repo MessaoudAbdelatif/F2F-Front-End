@@ -15,10 +15,12 @@ export class InfluencerComponent implements OnInit {
   }
 
   ngOnInit() {
+
     this.influencersService.infleuncerSelected
       .subscribe(
         (influencer: Influencer) => {
           this.influencerSelected = influencer;
+          console.log('ID UUID --->' + influencer.id);
         }
       );
   }

@@ -36,6 +36,9 @@ import {PreviewProductComponent} from './product/product-list/preview-product/pr
 import {KeycloakSerurityService} from './services/keycloak-security/keycloak-serurity.service';
 import {RequestInterceptorService} from './services/keycloak-security/request-interceptor.service';
 
+import {  NO_ERRORS_SCHEMA } from '@angular/core';
+import { MDBBootstrapModule } from 'angular-bootstrap-md';
+
 // export function kcFactory(kcSecurity: KeycloakSerurityService) {
 //   return () => kcSecurity.init();
 // }
@@ -72,7 +75,11 @@ const secService = new KeycloakSerurityService();
     FormsModule,
     ReactiveFormsModule,
     HttpClientModule,
-    AppRoutingModule
+    AppRoutingModule,
+    MDBBootstrapModule.forRoot()
+  ],
+  schemas: [
+    NO_ERRORS_SCHEMA
   ],
   providers: [
     {provide: KeycloakSerurityService, useValue: secService},

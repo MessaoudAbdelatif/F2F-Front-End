@@ -1,10 +1,8 @@
-<a
+<a class="list-group"
   routerLinkActive="influencer"
-  class="list-group-item btn-outline-dark bg-transparent"
   (click)="onSelected()">
-  <div class="pull-left card-title">
-    <h4 class="list-group-item-heading">{{ selectedInfluencer.firstName }} {{selectedInfluencer.lastName}}</h4>
-    <p class="list-group-item-text text-secondary">{{ selectedInfluencer.niche }}</p>
+  <div class="pull-left">
+    <p>{{ selectedInfluencer.firstName | uppercase}} {{selectedInfluencer.lastName}}   <span class="badge animated swing">{{ selectedInfluencer.niche}}</span></p>
   </div>
 
 </a>

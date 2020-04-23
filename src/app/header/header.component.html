@@ -2,7 +2,7 @@
   <div class="container-fluid">
     <a class="navbar-brand navbar-text text-secondary" routerLink="/"><img
       src="../../assets/img/logo.png"
-      class="img-responsive"
+      class="img-responsive animated bounceInRight"
       alt="F2Follow" style="max-height: 30px;">F2Follow</a>
     <button class="navbar-toggler" type="button" data-toggle="collapse"
             data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
@@ -14,45 +14,45 @@
       <ul class="navbar-nav ml-auto">
         <li class="nav-item">
           <a class="nav-link" routerLink="/" id="navbarLink1" role="button"
-             aria-haspopup="true" aria-expanded="false">
+             aria-haspopup="true" aria-expanded="false"><mdb-icon fas icon="home"></mdb-icon>
             Accueil
           </a>
         <li class="nav-item" *ngIf="isUserCompany()">
           <a class="nav-link" routerLink="/influencer" id="navbarLink6" role="button"
-             aria-haspopup="true" aria-expanded="false">
-            Influencers
+             aria-haspopup="true" aria-expanded="false"><mdb-icon fas icon="users"></mdb-icon>
+            influenceurs
           </a>
 
-        <li class="nav-item">
+        <li class="nav-item" *ngIf="securityService.kc.authenticated">
           <a class="nav-link" routerLink="/deals" id="navbarLink2" role="button"
-             aria-haspopup="true" aria-expanded="false">
+             aria-haspopup="true" aria-expanded="false"><mdb-icon far icon="handshake"></mdb-icon>
             Offres
           </a>
-        <li class="nav-item">
+        <li class="nav-item" *ngIf="securityService.kc.authenticated">
           <a class="nav-link" routerLink="/messages" id="navbarLink3" role="button"
-             aria-haspopup="true" aria-expanded="false">
+             aria-haspopup="true" aria-expanded="false"><mdb-icon far icon="envelope"></mdb-icon>
             Messages
           </a>
 
         <li class="nav-item" *ngIf="isUserCompany()">
           <a class="nav-link" routerLink="/products" id="navbarLink4" role="button"
-             aria-haspopup="true" aria-expanded="false">
+             aria-haspopup="true" aria-expanded="false"><mdb-icon fas icon="cubes"></mdb-icon>
             Produits
           </a>
 
         <li class="nav-item" *ngIf="securityService.kc.authenticated">
           <a class="nav-link dropdown-toggle text-uppercase" id="navbarDropdown" role="button"
-             data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+             data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><mdb-icon far icon="user-circle"></mdb-icon>
             {{ securityService.kc.tokenParsed["name"] }}
           </a>
           <!-- Add the .animate and .slide-in classes to your .dropdown-menu and you're all set! -->
           <div class="dropdown-menu dropdown-menu-right animate slideIn"
                aria-labelledby="navbarDropdown">
-            <a href="/" class=" dropdown-item nav-link" (click)="onKcProfile()">Mon compte</a>
-            <a class="dropdown-item nav-link " (click)="onLogout()">Se déconnecter</a>
+            <a href="/" class=" dropdown-item nav-link" (click)="onKcProfile()"><mdb-icon fas icon="location-arrow"></mdb-icon> Mon compte</a>
+            <a class="dropdown-item nav-link " (click)="onLogout()"><mdb-icon fas icon="sign-out-alt"></mdb-icon> Se déconnecter</a>
           </div>
         </li>
-        <li><a *ngIf="!securityService.kc.authenticated" class="dropdown-item nav-link " (click)="onLogin()">Se
+        <li><a *ngIf="!securityService.kc.authenticated" class="dropdown-item nav-link " (click)="onLogin()"><mdb-icon fas icon="plug"></mdb-icon> Se
           connecter</a>
         </li>
 

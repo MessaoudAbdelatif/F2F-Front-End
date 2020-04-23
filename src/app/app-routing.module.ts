@@ -20,6 +20,7 @@ const routes: Routes = [
   {path: 'deal', component: SingleDealComponent},
   {path: 'newDeal', component: DealFormComponent},
   {path: 'messages', component: MessageComponent},
+  {path: 'messageForm', component: MessageFormComponent},
   {path: 'message', component: SingleMessageComponent},
   {path: 'newMessage', component: MessageFormComponent},
   {path: 'products', component: ProductListComponent},

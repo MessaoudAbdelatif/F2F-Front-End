@@ -1,35 +1,85 @@
-<div class="row">
-  <div class="container m-2 ml-md-5">
-    <div class="shadow card bg-light">
-      <div class="card-header h4 text-dark text-center">
-        <div class="row">
-          <div class="col-6 text-left text-uppercase"> {{selectedInfluencer.firstName}}  {{selectedInfluencer.lastName}}
-            <br>
-            <span class="text-secondary text-lowercase font-italic">{{selectedInfluencer.niche}}</span>
-          </div>
-          <div class="col-2 offset-4">
-            <span class="pull-right">
-        <img
-          src="https://static.thenounproject.com/png/17241-200.png"
-          alt="{{ selectedInfluencer.firstName }}"
-          class="img-responsive"
-          style="max-height: 50px;">
-      </span>
-          </div>
-        </div>
-      </div>
-      <div class="btn-group">
-        <button type="button"
-                class="btn btn-primary">
-          Contacter
-        </button>
-        <button type="button"
-                class="btn btn-primary">
-          Proposer une offre
-        </button>
-      </div>
-      <div class="m-2 text-center">{{selectedInfluencer.description}}</div>
-    </div>
-  </div>
+<!--<div class="row animated bounceInLeft">-->
+<!--  <div class="container m-2 ml-md-5">-->
+<!--    <div class="shadow card bg-light">-->
+<!--      <div class="card-header h4 text-dark text-center">-->
+<!--        <div class="row">-->
+<!--          <div class="col-6 text-left text-uppercase"> {{selectedInfluencer.firstName}}  {{selectedInfluencer.lastName}}-->
+<!--            <br>-->
+<!--            <span class="text-secondary text-lowercase font-italic">{{selectedInfluencer.niche}}</span>-->
+<!--          </div>-->
+<!--          <div class="col-2 offset-4">-->
+<!--            <span class="pull-right">-->
+<!--        <img-->
+<!--          src="https://static.thenounproject.com/png/17241-200.png"-->
+<!--          alt="{{ selectedInfluencer.firstName }}"-->
+<!--          class="img-responsive"-->
+<!--          style="max-height: 50px;">-->
+<!--      </span>-->
+<!--          </div>-->
+<!--        </div>-->
+<!--      </div>-->
+<!--      <div class="btn-group">-->
+<!--        <button type="button"-->
+<!--                class="btn btn-primary">-->
+<!--          Contacter-->
+<!--        </button>-->
+<!--        <button type="button"-->
+<!--                class="btn btn-primary">-->
+<!--          Proposer une offre-->
+<!--        </button>-->
+<!--      </div>-->
+<!--      <div class="m-2 text-center">{{selectedInfluencer.description}}</div>-->
+<!--    </div>-->
+<!--  </div>-->
+<!--</div>-->
 
+<div class="col-md-12 animated bounceInLeft">
+  <!--Card-->
+  <mdb-card cascade="true">
+
+    <!--Card image-->
+    <div class="view view-cascade overlay waves-light" mdbWavesEffect>
+      <mdb-card-img src="https://mdbootstrap.com/img/Photos/Others/men.jpg"></mdb-card-img>
+      <a>
+        <div class="mask rgba-white-slight"></div>
+      </a>
+    </div>
+    <!--/Card image-->
+
+    <mdb-card-body cascade="true" class="text-center">
+      <!--Card content-->
+      <h4 class="card-title">
+        <strong>{{selectedInfluencer.firstName}}  {{selectedInfluencer.lastName}}</strong>
+      </h4>
+      <h5>{{selectedInfluencer.niche}}</h5>
+      <mdb-card-text>
+
+        <div class="btn-group" role="group" aria-label="Basic example">
+          <button mdbBtn type="button" color="primary" class="waves-light" mdbWavesEffect (click)="onNewMessage(selectedInfluencer)">Contacter</button>
+          <button mdbBtn type="button" color="success" class="waves-light" mdbWavesEffect>Proposer une offre</button>
+        </div>
+
+      </mdb-card-text>
+      <mdb-card-text>
+        {{selectedInfluencer.description}}
+      </mdb-card-text>
+
+      <!--Facebook-->
+      <a type="button" mdbBtn floating="true" size="sm" color="fb" class="waves-light" mdbWavesEffect>
+        <mdb-icon fab icon="facebook-f"></mdb-icon>
+      </a>
+      <!--Twitter-->
+      <a type="button" mdbBtn floating="true" size="sm" color="tw" class="waves-light" mdbWavesEffect>
+        <mdb-icon fab icon="twitter"></mdb-icon>
+      </a>
+      <!--Google +-->
+      <a type="button" mdbBtn floating="true" size="sm" color="dribbble" class="waves-light" mdbWavesEffect>
+        <mdb-icon fab icon="dribbble"></mdb-icon>
+      </a>
+
+    </mdb-card-body>
+    <!--/.Card content-->
+
+  </mdb-card>
+  <!--/.Card-->
 </div>
