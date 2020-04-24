@@ -1,14 +1,14 @@
 <!-- Default form contact -->
-<form [formGroup]="messageForm" (ngSubmit)="submitMessage()" class="text-center border border-light p-5" novalidate>
+<form [formGroup]="messageForm" (ngSubmit)="submitMessage()" class="text-center border border-white p-5" novalidate>
 
   <p class="h4 mb-4">Ecrire un message :</p>
   <div *ngIf="valideMessage != ''"><div class="h3 text-info">{{valideMessage}}</div></div>
 
   <!-- Name -->
-  <label>Destinataire </label>
+  <label >Destinataire </label>
   <input type="text" id="defaultContactFormName" class="form-control mb-4" disabled placeholder={{selectedInfluencer.firstName}}>
   <!-- Subject -->
-  <label>Le sujet</label>
+  <label >Le sujet</label>
   <select class="browser-default custom-select mb-4" formControlName="title">
     <option value="Choisie un motif" disabled>Choisie un motif</option>
     <option value="Premier contact" selected>Premier contact</option>

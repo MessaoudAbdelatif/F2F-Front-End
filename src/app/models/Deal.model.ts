@@ -1,16 +1,21 @@
 export class DealModel {
   company: string;
-  influencer: string;
+  receiverName: string;
   title: string;
-  text: string;
+  offer: string;
   createdDate: string;
+  productName: string;
+  imageProductPath: string;
 
 
-  constructor(company: string, influencer: string, title: string, text: string, createdDate: string) {
+  constructor(company: string, receiverName: string, title: string, offer: string, createdDate: string, productName: string, imageProductPath: string) {
     this.company = company;
-    this.influencer = influencer;
+    this.receiverName = receiverName;
     this.title = title;
-    this.text = text;
+    this.offer = offer;
     this.createdDate = createdDate;
+    this.productName = productName;
+    this.imageProductPath = imageProductPath;
   }
 }
+

@@ -1,8 +1,8 @@
 <div class="row">
-  <div class="container col-md-5">
+  <div class="container col-md-5 mt-3">
     <app-my-deal-list></app-my-deal-list>
   </div>
-  <div class="container col-md-7">
+  <div class="container col-md-7 mt-3">
     <app-single-deal
       *ngIf="dealSelected; else infoText"
       [selectedDeal]="dealSelected"></app-single-deal>

@@ -2,7 +2,7 @@
    routerLinkActive="deals"
    (click)="onSelected()">
   <div class="pull-left">
-    <p>{{ selectedDeal.title | uppercase}} {{selectedDeal.company}}   <span class="badge animated swing">{{ selectedDeal.createdDate | date:'dd/MM/yyyy'}}</span></p>
+    <p>{{ selectedDeal.title | uppercase}} {{selectedDeal.receiverName}}   <span class="badge animated swing">{{ selectedDeal.company | date:'dd/MM/yyyy'}}</span></p>
   </div>
 
 </a>
