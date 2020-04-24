@@ -1,9 +1,8 @@
-<a
-  routerLinkActive="deals"
-  class="list-group-item btn-outline-dark bg-transparent"
-  (click)="onSelected()">
-  <div class="pull-left card-title">
-    <h4 class="list-group-item-heading">{{ selectedDeal.title }} from: {{selectedDeal.company}}</h4>
-    <p class="list-group-item-text text-secondary">{{  selectedDeal.createdDate }}</p>
+<a class="list-group"
+   routerLinkActive="deals"
+   (click)="onSelected()">
+  <div class="pull-left">
+    <p>{{ selectedDeal.title | uppercase}} {{selectedDeal.company}}   <span class="badge animated swing">{{ selectedDeal.createdDate | date:'dd/MM/yyyy'}}</span></p>
   </div>
+
 </a>

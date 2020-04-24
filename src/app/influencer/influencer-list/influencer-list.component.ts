@@ -8,11 +8,13 @@ import {Influencer} from '../../models/Influencer.model';
   styleUrls: ['./influencer-list.component.scss']
 })
 export class InfluencerListComponent implements OnInit {
-   errorMessage: string;
+  errorMessage: string;
 
 
-  constructor(private influencersService: InfluencersService) {
+  constructor(public influencersService: InfluencersService) {
   }
+
+  @Input() selectedInfluencer: Influencer;
 
   influencers: Influencer[];
 

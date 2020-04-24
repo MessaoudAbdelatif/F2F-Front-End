@@ -1,10 +1,8 @@
-<a
-  routerLinkActive="messages"
-  class="list-group-item btn-outline-dark bg-transparent"
-  (click)="onSelected()">
-  <div class="pull-left card-title">
-    <h4 class="list-group-item-heading">{{ selectedMessage.title }} from: {{selectedMessage.receiver}}</h4>
-    <p class="list-group-item-text text-secondary">{{  selectedMessage.createdDate }}</p>
+<a class="list-group"
+   routerLinkActive="messages"
+   (click)="onSelected()">
+  <div class="pull-left">
+    <p>{{ selectedMessage.title | uppercase}} de: {{selectedMessage.receiverName}}   <span class="badge animated swing">{{ selectedMessage.createdDate | date:'dd/MM/yyyy'}}</span></p>
   </div>
-</a>
 
+</a>

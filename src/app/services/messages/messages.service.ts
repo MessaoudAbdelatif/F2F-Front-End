@@ -1,5 +1,4 @@
 import {EventEmitter, Injectable} from '@angular/core';
-import {Influencer} from '../../models/Influencer.model';
 import {HttpClient, HttpHeaders} from '@angular/common/http';
 import {MessageModel} from '../../models/Message.model';
 import {KeycloakSerurityService} from '../keycloak-security/keycloak-serurity.service';
@@ -14,6 +13,7 @@ const httpOptions = {
 export class MessagesService {
 
   messageSelected = new EventEmitter<MessageModel>();
+  messageSelected2: MessageModel;
 
   constructor(private httpClient: HttpClient, private securityService: KeycloakSerurityService) {
   }
@@ -29,7 +29,15 @@ export class MessagesService {
 
   createMessage(message: MessageModel) {
     let body = JSON.stringify(message);
-    return this.httpClient.post('f2fserver/api/v1/message', body, httpOptions);
+    if (this.securityService.kc.hasRealmRole('influencer')) {
+      return this.httpClient.post('/f2fserver/api/v1/message/influencer', body, httpOptions);
+    }
+    if (this.securityService.kc.hasRealmRole('company')) {
+      return this.httpClient.post('/f2fserver/api/v1/message/company', body, httpOptions);
+    }
+  }
 
+  deleteMessage(id) {
+    return this.httpClient.delete('/f2fserver/api/v1/message' + id);
   }
 }

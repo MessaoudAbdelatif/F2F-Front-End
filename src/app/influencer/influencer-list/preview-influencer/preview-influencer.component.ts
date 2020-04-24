@@ -10,7 +10,7 @@ import {InfluencersService} from '../../../services/Influencers/influencers.serv
 export class PreviewInfluencerComponent implements OnInit {
   @Input() selectedInfluencer: Influencer;
 
-  constructor(private influencersService: InfluencersService) {
+  constructor(public influencersService: InfluencersService) {
   }
 
   ngOnInit(): void {

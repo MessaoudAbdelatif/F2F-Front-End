@@ -1,29 +1,29 @@
-<div class="row">
-  <div class="container m-2 ml-md-5">
-    <div class="shadow card bg-light">
-      <div class="card-header h4 text-dark text-center">
-        <div class="row">
-          <div class="col-6 text-left text-uppercase"> {{selectedMessage.title}}
-            <br>
-            <span class="text-secondary small text-lowercase font-italic">{{selectedMessage.createdDate | date:'dd/MM/yyyy' }} </span>
-          </div>
-          <div class="col-2 offset-4">
-          </div>
-        </div>
-      </div>
-      <div class="btn-group">
-        <button type="button"
-                class="btn btn-success">
-          Répondre
-        </button>
-        <button type="button"
-                class="btn btn-danger">
-          Supprimer
-        </button>
-      </div>
-      <div class="m-2 text-center">{{selectedMessage.text}}</div>
-    </div>
-  </div>
+<div class="col-md-12 animated bounceInLeft">
+  <!--Card-->
+  <mdb-card cascade="true">
+    <mdb-card-body cascade="true" class="text-center">
+      <!--Card content-->
+      <h4 class="card-title">
+        <strong>{{selectedMessage.receiverName}}</strong>
+      </h4>
+      <h5>{{selectedMessage.title}}</h5>
+      <mdb-card-text>
 
+
+
+      </mdb-card-text>
+      <mdb-card-text>
+        {{selectedMessage.text}}
+      </mdb-card-text>
+
+    </mdb-card-body>
+    <!--/.Card content-->
+    <div class="btn-group" role="group" aria-label="Basic example">
+      <button mdbBtn type="button" color="primary" class="waves-light" mdbWavesEffect>Répondre</button>
+      <button mdbBtn type="button" color="danger" class="waves-light" mdbWavesEffect>Supprimer</button>
+    </div>
+  </mdb-card>
+  <!--/.Card-->
 </div>
+
 

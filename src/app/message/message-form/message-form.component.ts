@@ -22,7 +22,7 @@ export class MessageFormComponent implements OnInit {
   ngOnInit(): void {
     this.selectedInfluencer = this.influencersService.influencerSelected2;
     this.messageForm = new FormGroup({
-      to: new FormControl(this.selectedInfluencer.id, Validators.required),
+      receiver: new FormControl(this.selectedInfluencer.id, Validators.required),
       title: new FormControl('', Validators.required),
       text: new FormControl('', Validators.required),
     });

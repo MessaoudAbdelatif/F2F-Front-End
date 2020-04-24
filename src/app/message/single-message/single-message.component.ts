@@ -1,5 +1,4 @@
 import {Component, Input, OnInit} from '@angular/core';
-import {Influencer} from '../../models/Influencer.model';
 import {MessageModel} from '../../models/Message.model';
 import {MessagesService} from '../../services/messages/messages.service';
 
@@ -11,10 +10,14 @@ import {MessagesService} from '../../services/messages/messages.service';
 export class SingleMessageComponent implements OnInit {
   @Input() selectedMessage: MessageModel;
 
-  constructor(private messagesService: MessagesService) {
+  constructor(public messagesService: MessagesService) {
   }
 
   ngOnInit(): void {
+  }
+
+  onDelete(id: string) {
+    this.messagesService.deleteMessage(id);
   }
 
 }

@@ -15,13 +15,11 @@ export class DealsService {
   }
 
   getDealsFromApi() {
-    const email = this.securityService.kc.tokenParsed['email'];
-    console.log(email);
     if (this.securityService.kc.hasRealmRole('company')) {
-      return this.httpClient.get('/f2fserver/api/v1/deals/company/' + email);
+      return this.httpClient.get('/f2fserver/api/v1/deals/company');
     }
     if (this.securityService.kc.hasRealmRole('influencer')) {
-      return this.httpClient.get('/f2fserver/api/v1/deals/influencer/' + email);
+      return this.httpClient.get('/f2fserver/api/v1/deals/influencer');
     }
   }
 }

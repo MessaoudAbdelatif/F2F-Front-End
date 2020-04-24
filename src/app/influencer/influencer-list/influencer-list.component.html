@@ -2,13 +2,13 @@
   <div class="col-12" *ngIf="!errorMessage; else ErrorMessageView">
     <mdb-card>
       <mdb-card-header class="text-center h2"> Liste d'influenceurs</mdb-card-header>
-    <ul class="list-group list-group-flush">
-      <li class="list-group-item">
-        <app-preview-influencer
-          *ngFor="let influencerEl of influencers"
-          [selectedInfluencer]="influencerEl"></app-preview-influencer>
-      </li>
-    </ul>
+      <ul class="list-group list-group-flush">
+        <li class="list-group-item">
+          <app-preview-influencer [ngClass]="selectedInfluencer == influencerEl ? 'active' : ''"
+                                  *ngFor="let influencerEl of influencers"
+                                  [selectedInfluencer]="influencerEl"></app-preview-influencer>
+        </li>
+      </ul>
     </mdb-card>
   </div>
 </div>
@@ -16,35 +16,3 @@
 <ng-template #ErrorMessageView>
   <p class="text-center text-uppercase text-danger h2">{{errorMessage}}</p>
 </ng-template>
-
-<!--<div class="row">-->
-<!--  <div class="container m-2 ml-md-5 col-sm-4">-->
-<!--    <div class="shadow card bg-light">-->
-<!--      <div class="card-header h4 text-dark text-center">-->
-<!--        Liste d'influnceurs-->
-<!--      </div>-->
-<!--      <table class="table table-hover table-inverse table-striped">-->
-<!--        <thead class="bg-light">-->
-<!--        <tr>-->
-<!--          <th>Nom</th>-->
-<!--          <th>Prénom</th>-->
-<!--          <th>Niche</th>-->
-<!--        </tr>-->
-<!--        </thead>-->
-<!--        <tbody>-->
-<!--        <tr *ngFor="let influencer of influencers" (click)="onSelected()">-->
-<!--          <td>-->
-<!--            {{influencer.firstName}}-->
-<!--          </td>-->
-<!--          <td>-->
-<!--            {{influencer.lastName}}-->
-<!--          </td>-->
-<!--          <td>-->
-<!--            {{influencer.niche}}-->
-<!--          </td>-->
-<!--        </tr>-->
-<!--        </tbody>-->
-<!--      </table>-->
-<!--    </div>-->
-<!--  </div>-->
-<!--</div>-->
